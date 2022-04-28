@@ -1,22 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="40dp"
+    android:layout_gravity="center"
     tools:context=".AddTask">
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/complete"
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/taskEditor"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:src="@drawable/ic_tick"
-        android:backgroundTint="@color/blue"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:contentDescription="Add" />
+        android:hint="Enter new task"
+        android:textAlignment="center"
+        android:background="@android:color/transparent"
+        android:layout_marginBottom="50sp"
+        android:textSize="30sp" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/taskEditor"
+        android:backgroundTint="@color/blue"
+        android:id="@+id/complete"
+        android:textAlignment="center"
+        android:layout_marginLeft="150dp"
+        android:text="Add"
+        android:layout_centerHorizontal="true"
+        android:textSize="25sp" />
+
+</RelativeLayout>
