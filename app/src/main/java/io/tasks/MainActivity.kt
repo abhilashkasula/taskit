@@ -3,6 +3,7 @@ package io.tasks
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
@@ -16,6 +17,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var addButton: FloatingActionButton
     private lateinit var tasksRecyclerView: RecyclerView
     private lateinit var tasksAdapter: TasksAdapter
+    private lateinit var emptyTasks: LinearLayout
     private val tasks = arrayListOf<Task>()
 
     private var currentId: Int = 0
@@ -51,21 +53,19 @@ class MainActivity : AppCompatActivity() {
 
         addButton = findViewById(R.id.add)
         tasksRecyclerView = findViewById(R.id.tasks)
+        emptyTasks = findViewById(R.id.emptyTasks)
         tasksAdapter = TasksAdapter(this, tasks, ::updateTask)
+        tasksAdapter.registerAdapterDataObserver(DataChangeObserver(tasksRecyclerView, emptyTasks, tasksAdapter))
         tasksRecyclerView.adapter = tasksAdapter
 
         addButton.setOnClickListener {
             getContent.launch(Intent(this, AddTask::class.java))
         }
 
-        addTask("This is a test task")
-        addTask("Go buy groceries")
-        addTask("Need to finish lunch")
-        addTask("Need to pickup Arun from the bus stop. Test tests tests tests tests")
         setupSwipe()
     }
 
-    fun setupSwipe() {
+    private fun setupSwipe() {
 
         ItemTouchHelper(object: ItemTouchHelper.Callback() {
             override fun getMovementFlags(
