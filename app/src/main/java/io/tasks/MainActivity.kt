@@ -3,6 +3,7 @@ package io.tasks
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -26,7 +27,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun addTask(action: String?) {
-        val task = Task(currentId, "$action $currentId")
+        if (action.isNullOrEmpty()) {
+            return Toast.makeText(this, "Please enter a valid task", Toast.LENGTH_SHORT).show()
+        }
+        val task = Task(currentId, action)
         tasks.add(task)
         tasksAdapter.notifyItemInserted(tasks.size - 1)
         currentId++
