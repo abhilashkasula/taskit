@@ -7,8 +7,10 @@ import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.snackbar.Snackbar
 
 class MainActivity : AppCompatActivity() {
     private lateinit var addButton: FloatingActionButton
@@ -55,6 +57,45 @@ class MainActivity : AppCompatActivity() {
         addButton.setOnClickListener {
             getContent.launch(Intent(this, AddTask::class.java))
         }
+
+        addTask("This is a test task")
+        addTask("Go buy groceries")
+        addTask("Need to finish lunch")
+        addTask("Need to pickup Arun from the bus stop. Test tests tests tests tests")
+        setupSwipe()
+    }
+
+    fun setupSwipe() {
+
+        ItemTouchHelper(object: ItemTouchHelper.Callback() {
+            override fun getMovementFlags(
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder
+            ): Int {
+                return makeMovementFlags(0, ItemTouchHelper.LEFT)
+            }
+
+            override fun onMove(
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder,
+                target: RecyclerView.ViewHolder
+            ): Boolean {
+                return false
+            }
+
+            override fun onSwiped(holder: RecyclerView.ViewHolder, direction: Int) {
+                val position = holder.adapterPosition
+                val task = tasks[position]
+                tasks.remove(task)
+                tasksAdapter.notifyItemRemoved(position)
+
+                Snackbar.make(tasksRecyclerView, "The task was deleted", Snackbar.LENGTH_LONG).setAction("Undo") {
+                    tasks.add(position, task)
+                    tasksAdapter.notifyItemInserted(position)
+                }.show()
+
+            }
+        }).attachToRecyclerView(tasksRecyclerView)
     }
 
 }
