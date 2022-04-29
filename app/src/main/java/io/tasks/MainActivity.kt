@@ -31,9 +31,16 @@ class MainActivity : AppCompatActivity() {
             return Toast.makeText(this, "Please enter a valid task", Toast.LENGTH_SHORT).show()
         }
         val task = Task(currentId, action)
-        tasks.add(task)
-        tasksAdapter.notifyItemInserted(tasks.size - 1)
+        tasks.add(0, task)
+        tasksAdapter.notifyItemInserted(0)
         currentId++
+    }
+
+    private fun updateTask(position: Int, isCompleted: Boolean) {
+        tasks[position].isCompleted = isCompleted
+        if (!tasksRecyclerView.isComputingLayout) {
+            tasksAdapter.notifyItemChanged(position)
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,7 +49,7 @@ class MainActivity : AppCompatActivity() {
 
         addButton = findViewById(R.id.add)
         tasksRecyclerView = findViewById(R.id.tasks)
-        tasksAdapter = TasksAdapter(this, tasks)
+        tasksAdapter = TasksAdapter(this, tasks, ::updateTask)
         tasksRecyclerView.adapter = tasksAdapter
 
         addButton.setOnClickListener {

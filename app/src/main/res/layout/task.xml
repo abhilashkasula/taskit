@@ -31,8 +31,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:hint="Task name"
-            android:text=""
-            android:textColor="#333333"
+            android:text="Need to finish lunch"
+            android:textColor="#545454"
             android:textSize="20sp" />
 
     </LinearLayout>
