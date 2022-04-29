@@ -3,7 +3,8 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardCornerRadius="15dp"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="0dp"
     android:layout_marginBottom="5dp"
     android:layout_height="wrap_content">
 
@@ -11,14 +12,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingLeft="30dp"
-        android:paddingTop="20dp"
+        android:paddingLeft="25dp"
+        android:paddingTop="15dp"
         android:paddingRight="30dp"
-        android:paddingBottom="20dp">
+        android:paddingBottom="15dp">
 
         <CheckBox
+            android:id="@+id/checkbox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:buttonTint="@color/checkbox_blue"
             android:layout_gravity="center"
             android:button="@drawable/round_checkbox" />
 
@@ -29,8 +32,8 @@
             android:layout_gravity="center"
             android:hint="Task name"
             android:text=""
-            android:textColor="@color/black"
-            android:textSize="25sp" />
+            android:textColor="#333333"
+            android:textSize="20sp" />
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>
