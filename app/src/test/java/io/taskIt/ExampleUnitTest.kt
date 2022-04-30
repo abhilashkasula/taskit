@@ -1,4 +1,4 @@
-package io.tasks
+package io.taskIt
 
 import org.junit.Test
 

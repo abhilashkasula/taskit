@@ -1,4 +1,4 @@
-package io.tasks
+package io.taskIt
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView

@@ -1,4 +1,4 @@
-package io.tasks
+package io.taskIt
 
 data class Task (
     var id: Int,

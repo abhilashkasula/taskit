@@ -1,4 +1,4 @@
-package io.tasks
+package io.taskIt
 
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView

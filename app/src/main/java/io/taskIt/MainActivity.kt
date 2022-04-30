@@ -1,4 +1,4 @@
-package io.tasks
+package io.taskIt
 
 import android.app.Activity
 import android.content.Intent

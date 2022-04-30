@@ -1,4 +1,4 @@
-package io.tasks
+package io.taskIt
 
 import android.content.Context
 import android.content.res.ColorStateList
