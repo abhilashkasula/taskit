@@ -4,6 +4,10 @@ import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 
 class DataChangeObserver(private val recyclerView: RecyclerView, private val view: View, private val adapter: TasksAdapter): RecyclerView.AdapterDataObserver() {
+    override fun onChanged() {
+        super.onChanged()
+        updateUI()
+    }
 
     override fun onItemRangeInserted(positionStart: Int, itemCount: Int) {
         super.onItemRangeInserted(positionStart, itemCount)
