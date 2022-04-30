@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.RecyclerView
 class TasksAdapter(
     private val context: Context,
     private val tasks: ArrayList<Task>,
-    private val updateTasks: (Int, Boolean) -> Unit
+    private val onTaskStatusChanged: (Int, Boolean) -> Unit
 ) :
     RecyclerView.Adapter<TasksAdapter.ViewHolder>() {
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -36,7 +36,7 @@ class TasksAdapter(
         holder.checkBox.buttonTintList = getColorList(position, task.isCompleted)
         holder.checkBox.isChecked = task.isCompleted
         holder.checkBox.setOnCheckedChangeListener { _: CompoundButton, isChecked: Boolean ->
-            updateTasks(holder.adapterPosition, isChecked)
+            onTaskStatusChanged(holder.adapterPosition, isChecked)
         }
     }
 
