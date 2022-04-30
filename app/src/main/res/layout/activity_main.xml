@@ -16,46 +16,85 @@
             android:id="@+id/header"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:layout_marginBottom="40dp"
-            android:text="Tasks"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="25dp"
+            android:text="TaskIt"
             android:textAlignment="center"
             android:textColor="@color/black"
-            android:textSize="50sp" />
+            android:textSize="35sp"
+            android:textStyle="bold" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_gravity="center">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingTop="20dp"
+                android:paddingBottom="30dp"
+                android:paddingLeft="30dp"
+                android:paddingRight="30dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Progress"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+
+                <com.google.android.material.progressindicator.LinearProgressIndicator
+                    android:id="@+id/tasksProgress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    app:indicatorColor="@color/black"
+                    app:trackCornerRadius="50dp"
+                    android:progress="0" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:visibility="gone"
-            android:padding="20dp"
             android:id="@+id/tasks"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
+            android:padding="20dp"
+            android:visibility="gone"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
         <LinearLayout
             android:id="@+id/emptyTasks"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
             android:layout_gravity="center"
+            android:layout_marginTop="100dp"
             android:alpha="0.3"
             android:orientation="vertical">
 
             <ImageView
-                android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginBottom="25dp"
-                android:src="@drawable/ic_tasks_empty"
-                android:contentDescription="Empty tasks" />
+                android:contentDescription="Empty tasks"
+                android:src="@drawable/ic_tasks_empty" />
 
             <TextView
-                android:layout_gravity="center"
                 android:layout_width="wrap_content"
-                android:textAlignment="center"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:text="No tasks found"
-                android:textSize="25sp"
-                android:layout_height="wrap_content" />
+                android:textAlignment="center"
+                android:textSize="25sp" />
         </LinearLayout>
 
     </LinearLayout>
@@ -67,9 +106,9 @@
         android:layout_gravity="end"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
-        android:src="@drawable/ic_add"
         android:backgroundTint="@color/blue"
+        android:contentDescription="Add"
+        android:src="@drawable/ic_add"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:contentDescription="Add" />
+        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
