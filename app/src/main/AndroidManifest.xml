@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Tasks">
         <activity
-            android:name=".AddTask"
+            android:name=".AddTaskActivity"
             android:exported="true" />
         <activity
             android:name=".MainActivity"

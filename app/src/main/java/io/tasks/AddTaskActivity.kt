@@ -13,7 +13,7 @@ import com.google.android.material.card.MaterialCardView
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
-class AddTask : AppCompatActivity() {
+class AddTaskActivity : AppCompatActivity() {
     private lateinit var taskText: EditText
     private lateinit var completeButton: ExtendedFloatingActionButton
     private lateinit var cancelButton: MaterialCardView

@@ -34,7 +34,7 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:padding="40dp"
-        tools:context=".AddTask">
+        tools:context=".AddTaskActivity">
 
         <EditText
             android:id="@+id/taskEditor"

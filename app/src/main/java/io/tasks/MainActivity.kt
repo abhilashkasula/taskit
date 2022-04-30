@@ -58,7 +58,7 @@ class MainActivity : AppCompatActivity() {
         tasksRecyclerView.adapter = tasksAdapter
 
         addButton.setOnClickListener {
-            getContent.launch(Intent(this, AddTask::class.java))
+            getContent.launch(Intent(this, AddTaskActivity::class.java))
         }
 
         ItemTouchHelper(TaskSwipeCallback(tasks, tasksAdapter, tasksRecyclerView)).attachToRecyclerView(tasksRecyclerView)
