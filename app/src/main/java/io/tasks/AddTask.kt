@@ -9,13 +9,14 @@ import android.util.Log
 import android.view.View
 import android.widget.EditText
 import android.widget.TextView
+import com.google.android.material.card.MaterialCardView
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class AddTask : AppCompatActivity() {
     private lateinit var taskText: EditText
     private lateinit var completeButton: ExtendedFloatingActionButton
-    private lateinit var cancelButton: ExtendedFloatingActionButton
+    private lateinit var cancelButton: MaterialCardView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

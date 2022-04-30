@@ -6,18 +6,27 @@
     android:orientation="vertical"
     android:layout_height="match_parent">
 
-    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="50dp"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:id="@+id/cancel"
-        android:text="X"
         android:layout_alignParentEnd="true"
-        android:textSize="30sp"
-        android:layout_margin="30sp"
-        android:textAlignment="center"
-        style="@style/Widget.Material3.Button.UnelevatedButton"
-        android:backgroundTint="@android:color/transparent"
-        android:textColor="@color/black" />
+        android:layout_margin="20dp"
+        app:strokeWidth="1dp"
+        app:strokeColor="@color/red"
+        app:cardCornerRadius="50dp"
+        app:cardElevation="0dp">
+
+        <TextView
+            android:layout_marginTop="-7dp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:textAlignment="center"
+            android:layout_height="match_parent"
+            android:textColor="@color/red"
+            android:textSize="28sp"
+            android:text="x" />
+    </com.google.android.material.card.MaterialCardView>
 
 
     <RelativeLayout
